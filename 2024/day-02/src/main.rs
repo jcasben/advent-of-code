@@ -1,12 +1,11 @@
 use std::fs;
 
 fn main() {
-    part1();
+    let file = fs::read_to_string("in.txt").unwrap();
+    part1(&file);
 }
 
-fn part1() {
-    let file = fs::read_to_string("in.txt").unwrap();
-
+fn part1(file: &String) {
     let is_ascending = |vec: &Vec<i32>| -> bool {
         vec.windows(2).all(|win| win[0] <= win[1] && (win[1] - win[0]) >= 1 && (win[1] - win[0]) <= 3)
     };
